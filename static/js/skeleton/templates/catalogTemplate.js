@@ -1,4 +1,4 @@
-import { html } from "lit-html"
+import { html } from "../node_modules/lit-html/lit-html.js"
 import { singleEntry } from "./singleEntryTemplate.js"
 
 export function catalogTemplate(ctx, entries){

@@ -14,7 +14,6 @@ from Jobstler.custom_authentication.validators import validate_over_LIMIT_AGE
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_("email address"), unique=True)
-    date_of_birth = models.DateField(validators=[validate_over_LIMIT_AGE])
     is_staff = models.BooleanField(
         _("staff status"),
         default=False,

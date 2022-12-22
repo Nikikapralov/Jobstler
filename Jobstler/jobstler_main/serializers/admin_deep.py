@@ -10,7 +10,6 @@ from Jobstler.utils.DynamicFieldsSerializer import DynamicFieldsModelSerializer
 class UserSerializerDeepAdmin(DynamicFieldsModelSerializer):
     account_data = serializers.SerializerMethodField()
     advertisements = serializers.SerializerMethodField()
-    comments = serializers.SerializerMethodField()
 
     class Meta:
         model = CustomUser
@@ -18,22 +17,14 @@ class UserSerializerDeepAdmin(DynamicFieldsModelSerializer):
 
     @staticmethod
     def get_account_data(obj: CustomUser) -> ReturnList:
-        account_data = UserAccount.objects.filter(user=obj.pk)
+        account_data = UserAccount.objects.get(user_owner_id=obj.pk)
         serializer = UserAccountSerializer(account_data, many=False)
         return serializer.data
 
     @staticmethod
     def get_advertisements(obj: CustomUser) -> ReturnList:
-        account_data = UserAccount.objects.get(user=obj.pk)
-        advertisements = Advertisement.objects.filter(user_owner=account_data)
+        advertisements = Advertisement.objects.filter(user_owner=obj.pk)
         serializer = AdvertisementSerializer(advertisements, many=True)
-        return serializer.data
-
-    @staticmethod
-    def get_comments(obj: CustomUser) -> ReturnList:
-        account_data = UserAccount.objects.get(user=obj.pk)
-        comments = Comment.objects.filter(user_owner=account_data)
-        serializer = CommentSerializer(comments, many=True)
         return serializer.data
 
 

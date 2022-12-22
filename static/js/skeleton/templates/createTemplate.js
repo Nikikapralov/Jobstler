@@ -1,4 +1,4 @@
-import { html } from "lit-html"
+import { html } from "../node_modules/lit-html/lit-html.js"
 import { onSubmit } from "../eventListeners/form/submit.js"
 import { createEntry } from "../services/entries.js"
 import { noEmptyFields } from "../validators/formValidators.js"

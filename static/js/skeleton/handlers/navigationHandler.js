@@ -1,9 +1,15 @@
-import { navbarTemplateLogged, navbarTemplateNotLogged } from "../templates/navbarTemplate.js";
-import { getToken } from "../services/auth.js"
+import { navbarTemplateLogged, navbarTemplateNotLogged, navbarTemplateLoggedAdmin } from "../templates/navbarTemplate.js";
+import { getUser } from "../services/auth.js"
 
 export function navigationHandler(ctx){
-    if (getToken()){
+    let user = getUser()
+    if (user == undefined){
+        return navbarTemplateNotLogged(ctx)
+    }
+    if (user["Authorization"] && user["is_superuser"]){
+        return navbarTemplateLoggedAdmin(ctx)
+    }
+    else if (user["Authorization"]){
         return navbarTemplateLogged(ctx)
     }
-    return navbarTemplateNotLogged(ctx)
 }

@@ -137,6 +137,11 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000" ]
 
+CORS_ALLOWED_ORIGINS = [
+"http://localhost:8000",
+"http://127.0.0.1:8000"
+]
+
 AUTH_USER_MODEL = "custom_authentication.CustomUser"
 AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',

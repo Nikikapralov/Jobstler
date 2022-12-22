@@ -14,7 +14,7 @@ async function request(method, url, data, mustAuthorize=false){
     }
 
     if (mustAuthorize){
-        options.headers["X-Authorization"] = getToken()
+        options.headers["Authorization"] = getToken()
         }
 
     try{

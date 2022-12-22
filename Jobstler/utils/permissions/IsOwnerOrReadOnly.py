@@ -1,5 +1,7 @@
 from rest_framework import permissions
 
+from Jobstler.jobstler_main.models import UserAccount
+
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
@@ -13,4 +15,6 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
 
         # Write permissions are only allowed to the owner of the snippet.
-        return obj.user_owner_id == request.user.pk
+        user_account = UserAccount.objects.get(user_owner=request.user)
+        print(obj.user_owner_id, user_account.user_owner_id)
+        return obj.user_owner_id == user_account.user_owner_id

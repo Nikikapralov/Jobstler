@@ -8,13 +8,15 @@ class UserAccountSerializer(DynamicFieldsModelSerializer):
 
     class Meta:
         model = UserAccount
-        exclude = ("is_deleted", "user")
+        exclude = ("is_deleted",)
 
 
 class CommentSerializer(DynamicFieldsModelSerializer):
     """
     CommentSerializer to get the comment that was exchanged.
     """
+
+    user_owner = serializers.ReadOnlyField(source="user_owner.pk")
 
     class Meta:
         model = Comment
@@ -25,6 +27,7 @@ class CommentSerializer(DynamicFieldsModelSerializer):
 class AdvertisementSerializer(DynamicFieldsModelSerializer):
 
     comments = serializers.SerializerMethodField()
+    user_owner = serializers.ReadOnlyField(source="user_owner.pk")
 
     class Meta:
         model = Advertisement

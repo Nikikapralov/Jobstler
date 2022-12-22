@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Jobstler</title>
+</head>
+<body>
+    <header>
+        <nav class="header_non_authenticated">
+            <ul>
+                <li>
+                    <a class="home" href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="register">Register</a>
+                </li>
+                <li>
+                    <a href="#" class="log-in">Log in</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="header_authenticated">
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">My Profile</a>
+                </li>
+                <li>
+                    <a href="">My Advertisements</a>
+                </li>
+                <li>
+                    <a href="" class="advertisements">Advertisements</a>
+                </li>
+                <li>
+                    <a href="">Create advertisement</a>
+                </li>
+                <li>
+                    <a href="" class="log_out">Log out</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <nav class="header_admin">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="user_profiles">User profiles</a>
+                </li>
+                <li>
+                    <a href="#" class="log_out">Log out</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="Log in">
+            <form>
+                <h3>Log in</h3>
+                <input type="text" placeholder="Your email" name="email">
+                <input type="password" placeholder="Your password" name="password">
+                <button type="submit" method="post">Log in</button>
+            </form>
+        </section>
+
+        <section class="Register">
+            <form>
+                <h3>Register</h3>
+                <input type="text" placeholder="Your email" name="email">
+                <input type="password" placeholder="Your password" name="password">
+                <input type="password" placeholder="Confirm your password" name="conf-password">
+                <input type="date" placeholder="YYYY-MM-DD" name="birthdate">
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section class="create-avertisement">
+            <form>
+                <h3>Create advertisement</h3>
+                <input type="text" name="title" placeholder="Title">
+                <input type="url" name="image_url" placeholder="Url link to your image">
+                <input type="number" name="price" placeholder="10.00">
+                <textarea type="text" name="description" placeholder="Description"></textarea>
+                <button type="submit">Create</button>
+
+            </form>
+        </section>
+
+        <section class="create-avertisement">
+            <form>
+                <h3>Edit advertisement</h3>
+                <input type="text" name="title" placeholder="Title">
+                <input type="url" name="image_url" placeholder="Url link to your image">
+                <input type="number" name="price" placeholder="10.00">
+                <textarea type="text" name="description" placeholder="Description"></textarea>
+                <button type="submit">Edit</button>
+
+            </form>
+        </section>
+
+        <section class="display_advertisements">
+            <h1>There are currently no advertisements.
+                Check back later.
+            </h1>
+        </section>
+
+        <section class="my_advertisements">
+            <h1>You have not added any advertisements.
+                <a href="#">Add advertisement</a>
+            </h1>
+        </section>
+
+        <section class="profile">
+            <form>
+                <h3>Update profile data</h3>
+                <input type="text" name="first_name" placeholder="First name">
+                <input type="text" name="middle_name" placeholder="Middle name">
+                <input type="text" name="last_name" placeholder="Last name">
+                <button type="submit">Update</button>
+            </form>
+        </section>
+
+        <section class="profile">
+            <form>
+                <h3>Update comment</h3>
+                <textarea></textarea>
+                <button type="submit">Update</button>
+            </form>
+        </section>
+
+        <section class="Home">
+            <h1>Jobstler</h1>
+            <div class="img_container">
+            <img class="left" src="./images/istockphoto-1346125184-612x612.jpg" alt="">
+                <img class="right" src="./images/istockphoto-670083108-1024x1024.jpg" alt=""></div>
+                <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                    <img class="middle" src="./images/istockphoto-1312300934-612x612.jpg">
+                    <h2>Publish a job opportunity and find quality workers now!</h2>
+                    <a href="#">Register</a>
+
+        </section>
+
+        <section class="all_advertisements">
+            <ul>
+                <li>
+                    <div class="all_advertisements_container">
+                        <h3>Title</h3>
+                        <img src="./images/istockphoto-1312300934-612x612.jpg" alt="None">
+                        <div class="price">Price: <span>10.90</span></div>
+                        <h4>Description</h4>
+                        <p>
+                            Description
+                        </p>
+                        <ul>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>
+                                    First Comment
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>Second Comment</p>
+                                
+                            </li>
+                        </ul>
+                        <h4>Write a comment:</h4>
+                        <form>
+                            <textarea name="comment" placeholder="Write your comment here"></textarea>
+                            <button>Write Comment</button>
+                        </form>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="all_advertisements_container">
+                        <h3>Title</h3>
+                        <img src="./images/istockphoto-1312300934-612x612.jpg" alt="None">
+                        <div class="price">Price: <span>10.90</span></div>
+                        <h4>Description</h4>
+                        <p>
+                            Description
+                        </p>
+                        <ul>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>
+                                    First Comment
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>Second Comment</p>
+                                <button class="button">Delete Comment</button>
+                                <button class="button">Edit Comment</button>
+                                
+                            </li>
+                        </ul>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="all_advertisements_container">
+                        <h3>Title</h3>
+                        <img src="./images/istockphoto-1312300934-612x612.jpg" alt="None">
+                        <div class="price">Price: <span>10.90</span></div>
+                        <h4>Description</h4>
+                        <p>
+                            Description
+                        </p>
+                        <ul>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>
+                                    First Comment
+                                </p>
+                                <button class="button">Delete Comment</button>
+                                <button class="button">Edit Comment</button>
+                            </li>
+                            <li>
+                                <h4>Username writes:</h4>
+                                <p>Second Comment</p>
+                                <button class="button">Delete Comment</button>
+                                <button class="button">Edit Comment</button>
+                            </li>
+                        </ul>
+                        <h4>Write a comment:</h4>
+                        <form>
+                            <textarea name="comment" placeholder="Write your comment here"></textarea>
+                            <button>Write Comment</button>
+                        </form>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+    </main>
+    <footer>
+        <p>
+            Django REST and lit-html project. All rights belong to their respective owners.
+        </p>
+    </footer>
+</body>
+</html>

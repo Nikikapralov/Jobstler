@@ -51,7 +51,6 @@ export async function deleteEntry(id){
 
 export async function editEntry(id, data){
     try {
-        console.log(id, url)
         let url = `${editEntryUrl}/${id}`
         let result = await request.put(url, data, true)
     } catch (error) {

@@ -1,4 +1,4 @@
-import { html } from "lit-html"
+import { html } from "../node_modules/lit-html/lit-html.js"
 
 export function singleEntry(entry){
     return html`

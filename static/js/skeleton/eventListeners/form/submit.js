@@ -7,6 +7,7 @@ export function onSubmit(func=undefined, validators=undefined, ctx=undefined, re
         e.preventDefault()
 
         let data = Object.fromEntries(new FormData(e.currentTarget))
+        console.log(data)
 
         try{
             

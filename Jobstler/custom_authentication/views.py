@@ -26,7 +26,7 @@ class Register(ObtainAuthToken):
         password = serializer.validated_data["password"]
         date_of_birth = serializer.validated_data["date_of_birth"]
         user = CustomUser.objects.create_user(email=email, password=password, date_of_birth=date_of_birth)
-        UserAccount.objects.create(user=user)
+        UserAccount.objects.create(user_owner=user)
         user = authenticate(request=request,
                             email=email, password=password)
         token, created = Token.objects.get_or_create(user=user)
@@ -35,6 +35,7 @@ class Register(ObtainAuthToken):
                 "token": token.key,
                 "user_id": user.pk,
                 "email": user.email,
+                "is_superuser": user.is_superuser,
             },  status=HTTP_201_CREATED
         )
 
@@ -53,7 +54,8 @@ class Login(APIView):
             return Response(data={
                 "token": token.key,
                 "user_id": user.pk,
-                "email": user.email
+                "email": user.email,
+                "is_superuser": user.is_superuser,
             }, status=HTTP_202_ACCEPTED)
         return Response(data={
             "message": "Account has been suspended.",

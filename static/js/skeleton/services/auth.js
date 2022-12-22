@@ -4,10 +4,10 @@ import { responseOk } from "../validators/responseValidators.js"
 
 export function getToken(){
     let user = getUser()
-    if (!user){
+    if (!user || !user["Authorization"]){
         return undefined
     }
-    let token = user["accessToken"]
+    let token = user["Authorization"]
     return token
 }
 
