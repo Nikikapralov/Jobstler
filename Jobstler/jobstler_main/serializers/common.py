@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from rest_framework.utils.serializer_helpers import ReturnDict
 
-from Jobstler.jobstler_main.models import UserAccount, Comment, Advertisement, Message, PrivateMessageTable
+from Jobstler.jobstler_main.models import UserAccount, Comment, Advertisement
 from Jobstler.utils.DynamicFieldsSerializer import DynamicFieldsModelSerializer
 
 
@@ -20,6 +19,7 @@ class CommentSerializer(DynamicFieldsModelSerializer):
     class Meta:
         model = Comment
         exclude = ("is_deleted", )
+
 
 
 class AdvertisementSerializer(DynamicFieldsModelSerializer):
@@ -49,33 +49,4 @@ class AdvertisementSerializer(DynamicFieldsModelSerializer):
             raise serializers.ValidationError("Please fill all fields.")
 
 
-
-
-
-class MessageSerializer(DynamicFieldsModelSerializer):
-
-    class Meta:
-        model = Message
-        exclude = ("is_deleted", )
-
-
-class PrivateMessageTableSerializer(DynamicFieldsModelSerializer):
-    """
-    PrivateMessageTableSerializer to get the data for sender, recipient and the message that was sent.
-    """
-    message = serializers.SerializerMethodField()
-
-    class Meta:
-        model = PrivateMessageTable
-        fields = "__all__"
-
-    @staticmethod
-    def get_message(obj: PrivateMessageTable) -> ReturnDict:
-        """
-        Gets the message from the private message table's key and the message table.
-        @param obj: PrivateMessageTable Object
-        @return: Returns OrderedDict as serialized data.
-        """
-        serializer = MessageSerializer(obj.message)
-        return serializer.data
 

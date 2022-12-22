@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -34,17 +33,6 @@ class Advertisement(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     created_on = models.DateTimeField()
     is_deleted = models.BooleanField(default=False)
-
-
-class Message(models.Model):
-    text = models.CharField(max_length=255)
-    is_deleted = models.BooleanField()
-
-
-class PrivateMessageTable(models.Model):
-    sender = models.ForeignKey(UserAccount, on_delete=models.CASCADE, related_name="sender")
-    recipient = models.ForeignKey(UserAccount, on_delete=models.CASCADE, related_name="recipient")
-    message = models.ForeignKey(Message, on_delete=models.CASCADE)
 
 
 class Comment(models.Model):
